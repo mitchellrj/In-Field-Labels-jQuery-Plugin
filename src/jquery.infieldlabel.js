@@ -125,7 +125,8 @@
       // Find input or textarea based on for= attribute
       // The for attribute on the label must contain the ID
       // of the input or textarea element
-      var for_attr = $(this).attr('for'), $field;
+      var label = this.tagName==='label' ? $(this) : $(this).parent('label[for]');
+      var for_attr = label.attr('for'), $field;
       if (!for_attr) {
         return; // Nothing to attach, since the for field wasn't used
       }
